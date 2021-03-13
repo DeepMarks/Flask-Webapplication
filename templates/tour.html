@@ -1,0 +1,111 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Tour
+{% endblock %}
+
+{% block main %}
+
+<!-- dark mode -->
+{% if not dbase %}
+    <h4>You have no users in database.</h4>
+{% endif %}
+{% if dbase %}
+    {% for dbase_item in dbase %}
+
+        {% if not dbase_item.mode %}
+            <script>
+            window.onload = function() {
+              myFunction();
+            };
+            </script>
+
+        {% endif %}
+
+    {% endfor %}
+{% endif %}
+
+<!-- Tour Description -->
+        <section class="container" style="max-width:600px">
+          <h1 class="center">FIR Racketlon Tour</h1>
+          <p class="center"><i>Featuring new additions to the Tour</i></p>
+          <p class="justify">After most tournaments in 2020 were unfortunately cancelled due to the ongoing pandemic, the 2021 tour will feature some exciting new locations. Stay tuned! </p>
+        </section>
+
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+
+ <div id="mapid"></div>
+
+<script>
+
+var mymap = L.map('mapid').setView([51.505, -0.09], 4);
+
+L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox/streets-v11',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: 'pk.eyJ1IjoibXJiZXF1aWV0IiwiYSI6ImNramI5dmh2cTdqYzQyc2xiMGRqNWJ1Z3kifQ.n9wH6l4ErqKLb1qE9IDtVw'
+}).addTo(mymap);
+
+var marker1 = L.marker([47.2881, 8.5378]).addTo(mymap);
+var marker2 = L.marker([50.0519, 14.2517]).addTo(mymap);
+var marker3 = L.marker([53.4808, -2.2426]).addTo(mymap);
+var marker4 = L.marker([50.8470, 3.6014]).addTo(mymap);
+var marker5 = L.marker([51.9244, 4.4777]).addTo(mymap);
+var marker6 = L.marker([47.3983, 8.4488]).addTo(mymap);
+var marker7 = L.marker([47.0707, 15.4395]).addTo(mymap);
+var marker8 = L.marker([48.2082, 16.3738]).addTo(mymap);
+
+marker1.bindPopup("<b>26th-27th March</b><br>CHA Sihlsports Open | Langnau a.A./Switzerland").openPopup();
+marker2.bindPopup("<b>9th-11th April</b><br>IWT Czech Open | Prague, Czech Republic").openPopup();
+marker3.bindPopup("<b>16th-18th April</b><br>CHA Nick Matthew Steel City Open | Sheffield, Great Britain").openPopup();
+marker4.bindPopup("<b>26th-27th May</b><br>SWT King of Rackets | Oudenaarde, Belgium").openPopup();
+marker5.bindPopup("<b>11th-13th June</b><br>IWT Rotterdam Open | Rotterdam, Netherlands").openPopup();
+marker6.bindPopup("<b>25th June</b><br>Champions League, 1st Leg | Zurich, Switzerland").openPopup();
+marker6.bindPopup("<b>26th-27th June</b><br>14. IWT Swiss Open | Zurich, Switzerland").openPopup();
+marker7.bindPopup("<b>20th-24th August</b><br>18. FIR Racketlon World Championships Juniors & Seniors | Graz, Austria").openPopup();
+marker8.bindPopup("<b>25th-29th August</b><br>18. FIR Racketlon World Championships Singles, Teams & Doubles| Vienna, Austria").openPopup();
+
+</script>
+
+<h2><b>March</b></h2>
+<p>
+26<sup>th</sup>-27<sup>th</sup> March - CHA Sihlsports Open | Langnau a/A, Switzerland
+</p>
+
+<h2><b>April</b></h2>
+<p>
+9<sup>th</sup>-11<sup>th</sup> April - IWT Czech Open | Prague, Czech Republic
+</p>
+<p>
+16<sup>th</sup>-18<sup>th</sup> April - CHA Nick Matthew Steel City Open | Sheffield, Great Britain
+</p>
+
+<h2><b>May</b></h2>
+<p>
+26<sup>th</sup>-27<sup>th</sup> May - SWT King of Rackets | Oudenaarde, Belgium
+</p>
+
+<h2><b>June</b></h2>
+<p>
+11<sup>th</sup>-13<sup>th</sup> June - IWT Rotterdam Open | Rotterdam, Netherlands
+</p>
+<p>
+25<sup>th</sup> June - Champions League, 1<sup>st</sup> Leg | Zurich, Switzerland
+</p>
+<p>
+26<sup>th</sup>-27<sup>th</sup> June - 14. IWT Swiss Open | Zurich, Switzerland
+</p>
+
+<h2><b>August</b></h2>
+<p>
+20<sup>th</sup>-29<sup>th</sup> August - 18. FIR Racketlon World Championships | Vienna & Graz, Austria
+</p>
+
+{% endblock %}

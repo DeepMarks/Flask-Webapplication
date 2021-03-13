@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block body %}
+
+    <!-- Theme image -->
+        <section>
+          <img src="https://cdn.webshopapp.com/shops/40033/files/305071458/2760x1240x1/image.jpg"
+          style="width:100%">
+        </section>
+
+{% endblock %}
+
+
+{% block main %}
+
+<!-- dark mode -->
+        {% if not dbase %}
+            <h4>You have no users in database.</h4>
+        {% endif %}
+        {% if dbase %}
+            {% for dbase_item in dbase %}
+
+                {% if not dbase_item.mode %}
+                    <script>
+                    window.onload = function() {
+                      myFunction();
+                    };
+                    </script>
+
+                {% endif %}
+
+            {% endfor %}
+        {% endif %}
+
+
+<!-- History Description -->
+        <section class="container" style="max-width:600px">
+          <h1 class="center">Racketlon History</h1>
+          <p class="center"><i>In the Footsteps of our Ancestors</i></p>
+          <p class="justify">The still young sport of Racketlon has undergone a dramatic transformation since its early beginnings. Read more about the history of Racketlon here and learn about its pioneers, heroes and federations. </p>
+        </section>
+
+<h2><b>Pioneer</b></h2>
+<p>
+The first pioneer of Racketlon was without knowing so, Fred Perry, whose sports clothing is still well known around the world today. In 1929 he became table tennis world champion in Budapest and from 1934 to 1936 he won Wimbledon in Tennis three years in a row. What followed were further international tabletennis medals and tennis grand slam victories. In the year 2003,the sport Racketlon went on World Tour for the first time, thanks to a some enthusiasts from Sweden, where national tournaments are held since 1990. But what is Racketlon?
+</p>
+
+<h2><b>Idea</b></h2>
+<p>
+Racketlon is the sport in which you challenge your opponent in each of the four in Europe most played racket sports Table Tennis, Squash, Badminton and Tennis. It is a sport for everyone from the professional to the amateur, like in Biathlon, Triathlon or Decathlon Racketlon is a combination of individual sports. The idea of the Marathon counts, players at all skill levels shall take part at one tournament together, but in different classes. A racketlon match contains four sets, one in each sport. Each set is played to 21 points, but the total winner of a Racketlon match is not the one that wins most sets but the one that scores the most points in total.
+</p>
+
+<h2><b>History</b></h2>
+<p>
+The origins of racketlon can be traced back to Scandinavia in the mid Eighties, where four people representing each of the four racket federations got together in Finland to form a game they called mailapelit – i.e. “racket games”. The first Finnish Championships were held in Helsinki in 1986 and the sport rapidly grew and slowly changed to the Racketlon format.
+In Sweden Racketlon can be traced back to – at least – the end of the Eighties. In May 1989 the “Mr Racketlon” of Sweden and twice national champion, Peter Landberg, organized the first competition. The following year, in 1990, the first Swedish Championships took place and attracted more than 200 players.
+During the first couple of years the name “racketlon” was not yet invented. Instead, “racket championships” was used. Also, the rules were different. For some time in the beginning the ambition was to keep the characteristic rules of counting in each of the sports meaning e.g. that the tennis set was played to 6 games, the badminton set to 15 points where only the server can get a point – and so forth. This method of counting, however, required some fairly complicated mathematics involving conversion tables. After a tight match, often it was not clear to the players who had actually won until the mathematics had been done. Then, in 1994, the present rules of counting were introduced thanks to an unexpected discovery. It was found out that a similar game, mailapelit, was played in Finland. The Finnish game contained the same sports but the counting was different and much simpler; “each set to 21 points – most points is the winner”. These rules were straightforwardly imported and the 1994 Swedish Racketlon Championships were using the Finnish counting, which has been the case ever since.
+</p>
+
+<h2><b>Internationalization</b></h2>
+<p>
+As already mentioned racketlon also emerged in Finland – under the name of mailapelit (eng. “racket games”). Interestingly, the Swedish and Finnish developments seem to have occurred independently at around the same time. It was only after several years of activity that the movements got to know about each other with the result mentioned above that the Finnish rules were adopted by the Swedes. Various indications show that activities similar to Racketlon are going on in many places of the world. In Germany, for example “Schlägerturniere” (Eng. racket tournaments) involving 3, 4 or even 5 rackets seem quite common. (The fifth Schläger being a golf club…) In England there are vague traces of something called Quintathlon covering squash, tennis, rackets, real court tennis and (again!) golf.
+
+A significant step towards the internationalisation of Racketlon was taken in the autumn of 2001 when the first ever international Racketlon tournament took place. Gothenburg Racketlon World Open was played from the 2nd-4th of November, 2001. This was when the Finnish and Swedish Racketlon elites first faced each other and the result was no less than a shock to the somewhat conceited Swedish Racketlon community. The Finns won both the prestigious Men’s and Ladies’ Elite classes and a final victory in the Men’s Veteran class made it painfully obvious to the Swedes that they had been the victims of a clean sweep – and totally unexpected too. Players from six different countries took part. Apart from Finland and Sweden; Scotland, France, Germany and Bulgaria were represented. Since then one milestone after another have been reached, such as: The first international racketlon tournament in Finland was played in May 2002 and in the same year the first Racketlon tournament outside Scandinavia took place in Scotland in mid August. At the second World Championships in Gothenburg 2002 a Nationalteam competition was played for the first. The premiere of the World Tour was in 2003.
+</p>
+
+<h2><b>Name Change from IRF to FIR</b></h2>
+<p>
+The International Racketlon Federation (IRF) was founded on 15th September 2002. Official languages are French, English and German and the acronym later changed to French FIR – Federation Internationale de Racketlon. The first FIR COUNCIL was elected in October 2005 at a General Meeting during English Open in London. In 2020, the name was changed once again, from Federation Internationale de Racketlon to the Federation of International Racketlon.
+</p>
+
+{% endblock %}

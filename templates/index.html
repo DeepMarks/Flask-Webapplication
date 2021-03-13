@@ -1,0 +1,143 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block body %}
+
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+
+          </ol>
+
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="https://img.luzernerzeitung.ch/https://nzz-regio-assets-prod.s3.amazonaws.com/2020/9/29/1ba2deeb-c0ce-4886-ba7f-50fc1de4a800.jpeg" alt="Racketlon" style="width:100%;">
+              <div class="carousel-caption d-none d-md-block">
+                <h3>Racketlon</h3>
+                <p>Every single point counts.</p>
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <img src="https://i.insider.com/57b63582ce38f233008b7ac9?width=1200&format=jpeg" alt="TT" style="width:100%;">
+              <div class="carousel-caption d-none d-md-block">
+                <h3>Table Tennis</h3>
+                <p>Speed and focus are key.</p>
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Badminton_at_the_2012_Summer_Olympics_9133.jpg/1200px-Badminton_at_the_2012_Summer_Olympics_9133.jpg" alt="Bad" style="width:100%;">
+              <div class="carousel-caption d-none d-md-block">
+                <h3>Badminton</h3>
+                <p>The chess of racket sports.</p>
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <img src="https://psaworldtour.com/uploads/crop_image/1060/530/20190219145912_Rodriguez-Squash.jpg?x=-1.6840286254882812&y=-166.04167938232422&w=1063&o=1060&alt=Miguel%20Rodriguez%20dives%20for%20a%20ball%20during%20the%202018%20British%20Open%20final&" alt="Squash" style="width:100%;">
+              <div class="carousel-caption d-none d-md-block">
+                <h3>Squash</h3>
+                <p>A contest of true champions, battling it out in the ring.</p>
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <img src="https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Ftimes%2Fprod%2Fweb%2Fbin%2Fb8251d4c-83a5-11e8-b7ab-42d55e61ad8f.jpg?crop=2596%2C1461%2C339%2C60&resize=1180" alt="Tennis" style="width:100%;">
+              <div class="carousel-caption d-none d-md-block">
+                <h3>Tennis</h3>
+                <p>Art is when watching Roger Federer play tennis.</p>
+              </div>
+            </div>
+          </div>
+
+          <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+
+{% endblock %}
+
+{% block main %}
+
+        <!-- dark mode -->
+        {% if not dbase %}
+            <h4>You have no users in database.</h4>
+        {% endif %}
+        {% if dbase %}
+            {% for dbase_item in dbase %}
+
+                {% if not dbase_item.mode %}
+                    <script>
+                    window.onload = function() {
+                      myFunction();
+                    };
+                    </script>
+
+                {% endif %}
+
+            {% endfor %}
+        {% endif %}
+
+        <!-- OMEGA Description -->
+        <section class="container" style="max-width:600px">
+          <h1 class="center">OMEGA Rackets</h1>
+          <p class="center"><i>Beyond Racketlon</i></p>
+          <p class="justify">The vision of OMEGA Rackets is to promote the beautiful sport of Racketlon around the globe and connect enthusiasts to make our community even greater. We provide you with analytics on your athlete profile, an outlook on the FIR World Tour, the history of this sport and, ultimately, a presentation of our team.</p>
+        </section>
+
+        <h2 class="center">Contents</h1>
+        <p class="center"><i>Immerse yourself in the world of Racketlon</i></p>
+
+        <div class="row" style="justify-content:center">
+          <div class="card" style="width: 18rem;">
+            <img src="https://s27389.pcdn.co/wp-content/uploads/2020/07/rebuilding-your-data-analytics-capabilities-in-a-post-covid-world-1024x440.jpeg" class="card-img-top" alt="Analytics">
+            <div class="card-body">
+              <h4 class="card-title"><b>Analytics</b></h4>
+              <p class="card-text">Check out your latest ranking and results analytics.</p>
+              <a href="http://9f4b5484-72c8-46f4-a469-d1051bfe2b8e-ide.cs50.xyz/analytics" class="btn btn-primary">Analytics</a>
+            </div>
+          </div>
+
+          <div class="row" style="justify-content:center">
+          <div class="card" style="width: 18rem;">
+            <img src="data:image/png;base64,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" class="card-img-top" alt="Tour">
+            <div class="card-body">
+              <h4 class="card-title"><b>Tour</b></h4>
+              <p class="card-text">Learn more about the FIR Racketlon World Tour.</p>
+              <a href="http://9f4b5484-72c8-46f4-a469-d1051bfe2b8e-ide.cs50.xyz/tour" class="btn btn-primary">Tour</a>
+            </div>
+          </div>
+
+          <div class="row" style="justify-content:center">
+          <div class="card" style="width: 18rem;">
+            <img src="https://racketlonswissopen.ch/en/About_Racketlon/cmsfiles/titelbilder7.jpg" class="card-img-top" alt="History">
+            <div class="card-body">
+              <h4 class="card-title"><b>History</b></h4>
+              <p class="card-text">Get an idea about the origins of the concept behind Racketlon.</p>
+              <a href="http://9f4b5484-72c8-46f4-a469-d1051bfe2b8e-ide.cs50.xyz/history" class="btn btn-primary">History</a>
+            </div>
+          </div>
+
+          <div class="row" style="justify-content:center">
+          <div class="card" style="width: 18rem;">
+            <img src="https://www.racketlon.net/wp-content/uploads/2016/11/logo.png" class="card-img-top" alt="About">
+            <div class="card-body">
+              <h4 class="card-title"><b>About</b></h4>
+              <p class="card-text">Get to know the team behind OMEGA Rackets.</p>
+              <a href="http://9f4b5484-72c8-46f4-a469-d1051bfe2b8e-ide.cs50.xyz/about" class="btn btn-primary">About</a>
+            </div>
+          </div>
+
+{% endblock %}

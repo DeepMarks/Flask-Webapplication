@@ -1,0 +1,162 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Tour
+{% endblock %}
+
+{% block main %}
+
+<!-- dark mode -->
+{% if not dbase %}
+    <h4>You have no users in database.</h4>
+{% endif %}
+{% if dbase %}
+    {% for dbase_item in dbase %}
+
+        {% if not dbase_item.mode %}
+            <script>
+            window.onload = function() {
+              myFunction();
+            };
+            </script>
+
+        {% endif %}
+
+    {% endfor %}
+{% endif %}
+
+
+<!-- Ranking Description -->
+        <section class="container" style="max-width:600px">
+          <h1 class="center">OMEGA Analytics</h1>
+          <p class="center"><i>Striving towards Excellence</i></p>
+          <p class="justify">Check out your personalized Racketlon Analytics for the latest SRF rankings. </p>
+        </section>
+
+
+{% for dbase_item in dbase %}
+
+    {% if dbase_item.mode %}
+        <div id="linechart_material" style="width: 100%; height: 600px;"></div>
+
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript" style="background-color: blue">
+            google.charts.load('current', {'packages':['line', 'corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+
+
+            let year = JSON.parse('{{ year | tojson }}');
+            let month = JSON.parse('{{ month | tojson }}');
+            let rank = JSON.parse('{{ rank | tojson }}');
+
+
+            function drawChart() {
+
+              var data = new google.visualization.DataTable();
+              data.addColumn('date', 'Month');
+              data.addColumn('number', 'Rank');
+
+              var i;
+              for (i = 0; i < year.length; i++) {
+                data.addRows([
+                  [new Date(year[i], month[i]),  -rank[i]]
+                ]);
+              }
+
+              var options = {
+                title: 'SRF Rankings 2020', titleTextStyle: {color: 'white'},
+                hAxis: {title: 'Month', titleTextStyle: {color: 'white'}, textStyle: {color: 'white'}},
+                vAxis: {title: 'Rank', direction: 1, format: ';###,###', titleTextStyle: {color: 'white'}, textStyle: {color: 'white'}},
+                legend: {textStyle: {color: 'white'}},
+                chartArea: {backgroundColor: 'black'},
+                backgroundColor: 'black'
+              };
+
+              var chart = new google.charts.Line(document.getElementById('linechart_material'));
+              chart.draw(data, google.charts.Line.convertOptions(options));
+
+            }
+        </script>
+    {% endif %}
+
+    {% if not dbase_item.mode %}
+        <div id="linechart_material" style="width: 100%; height: 600px;"></div>
+
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript" style="background-color: blue">
+            google.charts.load('current', {'packages':['line', 'corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+
+            let year = JSON.parse('{{ year | tojson }}');
+            let month = JSON.parse('{{ month | tojson }}');
+            let rank = JSON.parse('{{ rank | tojson }}');
+
+
+            function drawChart() {
+
+              var data = new google.visualization.DataTable();
+              data.addColumn('date', 'Month');
+              data.addColumn('number', 'Rank');
+
+              var i;
+              for (i = 0; i < year.length; i++) {
+                data.addRows([
+                  [new Date(year[i], month[i]),  -rank[i]]
+                ]);
+              }
+
+              var options = {
+                title: 'SRF Rankings 2020', titleTextStyle: {color: 'black'},
+                hAxis: {title: 'Ranking Points', titleTextStyle: {color: 'black'}, textStyle: {color: 'black'}},
+                vAxis: {title: 'Rank', direction: 1, format: ';###,###', titleTextStyle: {color: 'black'}, textStyle: {color: 'black'}},
+                legend: {textStyle: {color: 'black'}},
+                chartArea: {backgroundColor: 'white'},
+                backgroundColor: 'white'
+              };
+
+              var chart = new google.charts.Line(document.getElementById('linechart_material'));
+              chart.draw(data, google.charts.Line.convertOptions(options));
+
+            }
+        </script>
+    {% endif %}
+
+{% endfor %}
+
+
+<!-- Ranking Description -->
+        <section class="container" style="max-width:600px">
+          <h2 class="center">SRF Top Players November 2020</h1>
+        </section>
+
+
+
+{% if not pbase %}
+            <h4>There are currently no entries in the ranking database. Stay tuned for an updated ranking!</h4>
+        {% endif %}
+        {% if pbase %}
+        <table class="center">
+            <tr>
+                <th>Rackets</th>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Player ID</th>
+                <th>Ranking Points</th>
+            </tr>
+
+            {% for name in pbase %}
+            <tr>
+                <td>{{ name.Rackets }}</td>
+                <td>{{ name.Rank }}</td>
+                <td>{{ name.Name }}</td>
+                <td>{{ name.Surname }}</td>
+                <td>{{ name.Points }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+
+
+
+
+{% endblock %}

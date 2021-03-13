@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Apology
+{% endblock %}
+
+{% block main %}
+
+<!-- dark mode -->
+{% if not dbase %}
+    <h4>You have no users in database.</h4>
+{% endif %}
+{% if dbase %}
+    {% for dbase_item in dbase %}
+
+        {% if not dbase_item.mode %}
+            <script>
+            window.onload = function() {
+              myFunction();
+            };
+            </script>
+
+        {% endif %}
+
+    {% endfor %}
+{% endif %}
+
+    <img alt="{{ top }}" class="border" src="http://memegen.link/custom/{{ top | urlencode }}/{{ bottom | urlencode }}.jpg?alt=https://i.imgur.com/CsCgN7Ll.png" title="{{ top }}">
+{% endblock %}

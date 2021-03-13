@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    About
+{% endblock %}
+
+{% block main %}
+
+<!-- dark mode -->
+{% if not dbase %}
+    <h4>You have no users in database.</h4>
+{% endif %}
+{% if dbase %}
+    {% for dbase_item in dbase %}
+
+        {% if not dbase_item.mode %}
+            <script>
+            window.onload = function() {
+              myFunction();
+            };
+            </script>
+
+        {% endif %}
+
+    {% endfor %}
+{% endif %}
+
+<!-- OMEGA Description -->
+        <section class="container" style="max-width:600px">
+          <h1 class="center">OMEGA Rackets</h1>
+          <p class="center"><i>We strive for an internationally connected Racketlon community</i></p>
+          <p class="justify">The team behind OMEGA Rackets consists of the brothers Noah Mamié and Léon Mamié. Originating from the difficult time period during the COVID-19 pandemic in 2020, the idea behind this initiative is to promote Racketlon on an international scale and connect the members of this community.</p>
+        </section>
+
+<!-- The Team Section -->
+    <div class="row">
+      <div class="col-sm-6">
+        <p class="text-center"><strong>Noah Mamié</strong></p><br>
+        <a href="#demo" data-toggle="collapse">
+          <img src="/static/Noah2.jpg" class="img-circle person" alt="Random Name">
+        </a>
+        <div id="demo" class="collapse">
+          <p>Co-Founder</p>
+          <p>HSG Student and Racketlon enthusiast</p>
+          <p>NLA player at Go For 4</p>
+          <p>CH Ranking #15</p>
+          <p>Member since 2020</p>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <p class="text-center"><strong>Léon Mamie</strong></p><br>
+        <a href="#demo" data-toggle="collapse">
+          <img src="/static/Leon.jpg" class="img-circle person" alt="Random Name">
+        </a>
+        <div id="demo" class="collapse">
+          <p>Co-Founder</p>
+          <p>ETH Student and Racketlon enthusiast</p>
+          <p>NLA player at Go For 4</p>
+          <p>CH Ranking #29</p>
+          <p>Member since 2020</p>
+        </div>
+      </div>
+    </div>
+{% endblock %}

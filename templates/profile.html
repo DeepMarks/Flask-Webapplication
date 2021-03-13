@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Profile
+{% endblock %}
+
+{% block main %}
+
+<!-- dark mode -->
+{% if not dbase %}
+    <h4>You have no users in database.</h4>
+{% endif %}
+{% if dbase %}
+    {% for dbase_item in dbase %}
+
+        {% if not dbase_item.mode %}
+            <script>
+            window.onload = function() {
+              myFunction();
+            };
+            </script>
+
+        {% endif %}
+
+    {% endfor %}
+{% endif %}
+
+{% for rating in player %}
+    <h5><b>Player rating: <mark>{{ rating.Rackets }}</mark></b></h5>
+    <h5><b>Player ranking: <mark>{{ rating.Rank }}</mark></b></h5>
+    <h5><b>Player points: <mark>{{ rating.Points }}</mark></b></h5>
+{% endfor %}
+
+    <form method="get" action="/success">
+        <button class="btn btn-primary" type="submit">Toggle Dark Mode</button>
+    </form>
+
+    <form method="get" action="/password">
+        <button class="btn btn-primary" type="submit">Change Password</button>
+    </form>
+{% endblock %}
