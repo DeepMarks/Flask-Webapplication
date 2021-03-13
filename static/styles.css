@@ -1,0 +1,106 @@
+body {
+  background-color: black;
+  color: white;
+}
+
+.dark-mode {
+  background-color: white;
+  color: black;
+}
+
+.card {
+    color: black;
+}
+
+.carousel-inner img {
+  width: 100%; /* Set width to 100% */
+  margin: auto;
+}
+
+.carousel-caption h3 {
+  color: #fff !important;
+}
+
+@media (max-width: 600px) {
+  .carousel-caption {
+    display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+  }
+}
+
+nav .navbar-brand
+{
+    /* size for brand */
+    font-size: xx-large;
+}
+
+/* colors for brand */
+nav .navbar-brand .blue
+{
+    color: #537fbe;
+}
+nav .navbar-brand .red
+{
+    color: #ea433b;
+}
+nav .navbar-brand .yellow
+{
+    color: #f5b82e;
+}
+nav .navbar-brand .green
+{
+    color: #2e944b;
+}
+
+main .form-control
+{
+    /* center form controls */
+    display: inline-block;
+
+    /* override Bootstrap's 100% width for form controls */
+    width: auto;
+}
+
+main
+{
+    /* scroll horizontally as needed */
+    overflow-x: auto;
+
+    /* center contents */
+    text-align: center;
+}
+
+main img
+{
+    /* constrain images on small screens */
+    max-width: 100%;
+}
+
+.person {
+  border: 10px solid transparent;
+  margin-bottom: 25px;
+  opacity: 0.7;
+}
+.person:hover {
+  border-color: #f1f1f1;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+th {
+  /* center contents */
+    text-align: center;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+  color: black;
+}
+
+table {
+  width: 100%;
+}
+
+#mapid { height: 700px; }
