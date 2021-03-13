@@ -1,4 +1,4 @@
-# CS50x: Final Project - Flask Web Application #
+# CS50x: Final Project - Flask Web App #
 
 <br />
 
